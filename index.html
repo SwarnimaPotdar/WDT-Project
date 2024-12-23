@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Body care</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .logo-container img {
+            width: 150px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        header {
+            background-color: #ff6b6b;
+            padding: 20px 0;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 24px;
+        }
+
+        nav {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+        }
+
+        nav button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        nav button a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .hero {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .hero h2 {
+            font-size: 28px;
+        }
+
+        .hero p {
+            font-size: 18px;
+        }
+
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .service-list {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .service {
+            width: 30%;
+        }
+
+        .service img {
+            width: 100%;
+            height: auto;
+            margin-top: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Mobile-first styles (default) */
+        @media (max-width: 768px) {
+            .service-list {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .service {
+                width: 80%;
+                margin-bottom: 20px;
+            }
+
+            .hero h2 {
+                font-size: 22px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            nav ul {
+                display: flex;
+                flex-direction: column;
+                padding: 0;
+                margin-top: 20px;
+            }
+
+            nav li {
+                margin: 10px 0;
+            }
+        }
+
+        /* Extra small screens (mobile phones) */
+        @media (max-width: 480px) {
+            .logo-container img {
+                width: 120px;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+
+            .hero h2 {
+                font-size: 20px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .btn {
+                font-size: 16px;
+                padding: 8px 16px;
+            }
+
+            footer p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCU-Gi4dxhkDqiqq37vLVHotvJDF6BMKdFbQ&s" alt="Mi Amor Logo">
+            </div>
+            <h1>Mi Amor</h1>
+
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <button> <a href="loginpage.html"> Login</a></button>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home">
+        <div class="hero">
+            <h2>Healthy Hair, Glowing Skin, Perfect Body</h2>
+            <p>Discover the best care for your beauty and wellness.</p>
+            <a href="#services" class="btn">Explore Services</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>Mi Amor is dedicated to providing top-notch services for your hair, skin, and body care. We combine natural products with expert techniques to ensure you look and feel your best.</p>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="service-list">
+                <div class="service">
+                    <h3>Hair Care</h3>
+                    <p>While sulfate-based shampoos are great for cleaning oil and dirt from your hair, they can seriously dry out your hair and cause damage like split ends. We prefer things au natural. Organic and sulfate-free hair products can lock in moisture and natural (good) oils, retain hair dye, and reduce scalp irritation.</p>
+                    <img src="https://www.cosmederma.in/wp-content/uploads/2023/11/Haircare.png" alt="haircare">
+                </div>
+                <div class="service">
+                    <h3>Skin Care</h3>
+                    <p>Reveal your natural glow with our skincare range! Gentle, effective, and crafted for all skin types—because your skin deserves the best. Nourish, hydrate, and shine every day!</p>
+                </div>
+                <div class="service">
+                    <h3>Body Care</h3>
+                    <p>Pamper your body with our luxurious care range! Infused with nourishing ingredients, our products moisturize, revitalize, and leave your skin irresistibly soft. Embrace the glow and confidence of beautifully cared-for skin every day!</p>
+                    <img src="https://c.ndtvimg.com/2022-03/i0g0kaag_skincare650_625x300_23_March_22.jpg?downsize=545:307" alt="bodycare">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+        </div>
+    </section>
+
+    <button> <a href="mainweb2index.html">Click to next page</a></button>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Mi Amor. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+</body>
+</html>
