@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Page</title>
+    <link rel="stylesheet" href="mw2_style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Hair Shop</h1>
+            <nav>
+                <ul>
+                    <li><a href="#oil">Hair oil</a></li>
+                    
+                 </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="oil">
+            <div class="container">
+                <h2>Moisturizer Collection</h2>
+                <div class="product-grid">
+                    <div class="product">
+                        <img src="https://shopataaranyam.com/cdn/shop/products/coconutoil3.png?v=1670059329" alt="oil 1">
+                        <h3>Coconut hair oil</h3>
+                        <p>Rs.350</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://bubblefarm.in/cdn/shop/products/Untitleddesign_11_9a3be8d1-9c60-4c87-a081-b0809469c45f.png?v=1683027841&width=1445" alt="oil 2">
+                        <h3>Rosemarry hair oil</h3>
+                        <p>Rs.399</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://passionindulge.com/cdn/shop/files/61qRmc2JZfL-SL1500-_1.jpg?v=1709105462" alt="oil 3">
+                        <h3>Almond hair oil</h3>
+                        <p>Rs.450</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://vanitywagon.in/cdn/shop/products/Brillare_Argan_Hair_Oil_100ml_1080x1080.jpg?v=1683798189" alt="oil 4">
+                        <h3>Argan hair oil</h3>
+                        <p>Rs.500</p>
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+                        
+    </main>
+
+    <script>
+        
+        var cart = [];
+    
+        
+        var addToCartButtons = document.querySelectorAll('button');
+    
+       
+        for (var i = 0; i < addToCartButtons.length; i++) {
+            
+            if (addToCartButtons[i].textContent.includes("next page")) continue;
+    
+            addToCartButtons[i].onclick = function() {
+               
+                var product = this.parentElement;
+                var name = product.querySelector('h3').textContent;
+                var price = product.querySelector('p').textContent;
+    
+               
+                cart.push({ name: name, price: price });
+                alert(name + " has been added to your cart.");
+            };
+        }
+    
+       
+        function checkout() {
+            if (cart.length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+    
+            
+            var cartSummary = "Your Cart:\n";
+            var total = 0;
+            for (var j = 0; j < cart.length; j++) {
+                cartSummary += cart[j].name + " - " + cart[j].price + "\n";
+                total += parseInt(cart[j].price.replace("Rs.", ""));
+            }
+            cartSummary += "\nTotal: Rs." + total;
+    
+            
+            var proceed = confirm(cartSummary + "\n\nProceed to payment?");
+           
+        }
+    
+        var checkoutButton = document.createElement('button');
+        checkoutButton.textContent = "Checkout";
+        checkoutButton.style.display = "block";
+        checkoutButton.style.margin = "20px auto";
+        document.body.appendChild(checkoutButton);
+    
+       
+        checkoutButton.onclick = checkout;
+    </script>
+    <button> <a href="paymentform.html">Payment</a></button>
+<p> Click here on Payment button after checkout</p>
+
+<button> <a href="mainweb9index.html">Click for next page</a></button>
+
+</body>
+</html>

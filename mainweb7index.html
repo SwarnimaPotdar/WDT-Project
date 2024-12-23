@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Page</title>
+    <link rel="stylesheet" href="mw2_style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Body Shop</h1>
+            <nav>
+                <ul>
+                    <li><a href="#butter">Body Butter </a></li>
+                 </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="scrub">
+            <div class="container">
+                <h2>Body Butter Collection</h2>
+                <div class="product-grid">
+                    <div class="product">
+                        <img src="https://i.ebayimg.com/images/g/KWoAAOSw3aBiF33p/s-l1200.jpg" alt="butter 1">
+                        <h3>British rose body butter</h3>
+                        <p>Rs.1495</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://media.thebodyshop.com/i/thebodyshop/COCONUT_BODY_BUTTER_200ml_5_INECOPS124?$product-zoom$&fmt=auto" alt="butter 2">
+                        <h3>Coconut body butter</h3>
+                        <p>Rs.1995</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://media.thebodyshop.com/i/thebodyshop/SATSUMA_BODY_BUTTER_200ml_5_INECOPS113?$product-zoom$&fmt=auto" alt="butter 3">
+                        <h3>Satsuma body butter</h3>
+                        <p>Rs.1650</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://thebodyshop.it/cdn/shop/products/AVOCADO_BODY_BUTTER_200ml_5_INECOPS132_15222f63-82a7-4bde-8e5a-982f40314378_720x.jpg?v=1633026582" alt="butter 4">
+                        <h3>Avocado body butter</h3>
+                        <p>Rs.1495</p>
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+      <button> <a href="mainweb8index.html">Click for next page</a></button>
+       
+    </main>
+
+    <script>
+        
+        var cart = [];
+    
+        
+        var addToCartButtons = document.querySelectorAll('button');
+    
+       
+        for (var i = 0; i < addToCartButtons.length; i++) {
+            
+            if (addToCartButtons[i].textContent.includes("next page")) continue;
+    
+            addToCartButtons[i].onclick = function() {
+               
+                var product = this.parentElement;
+                var name = product.querySelector('h3').textContent;
+                var price = product.querySelector('p').textContent;
+    
+               
+                cart.push({ name: name, price: price });
+                alert(name + " has been added to your cart.");
+            };
+        }
+    
+       
+        function checkout() {
+            if (cart.length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+    
+            
+            var cartSummary = "Your Cart:\n";
+            var total = 0;
+            for (var j = 0; j < cart.length; j++) {
+                cartSummary += cart[j].name + " - " + cart[j].price + "\n";
+                total += parseInt(cart[j].price.replace("Rs.", ""));
+            }
+            cartSummary += "\nTotal: Rs." + total;
+    
+            
+            var proceed = confirm(cartSummary + "\n\nProceed to payment?");
+           
+        }
+    
+        var checkoutButton = document.createElement('button');
+        checkoutButton.textContent = "Checkout";
+        checkoutButton.style.display = "block";
+        checkoutButton.style.margin = "20px auto";
+        document.body.appendChild(checkoutButton);
+    
+       
+        checkoutButton.onclick = checkout;
+    </script>
+    <button> <a href="paymentform.html">Payment</a></button>
+<p> Click here on Payment button after checkout</p>
+
+
+</body>
+</html>

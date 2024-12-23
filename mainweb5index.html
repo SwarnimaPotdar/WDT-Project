@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Page</title>
+    <link rel="stylesheet" href="mw2_style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Body Shop</h1>
+            <nav>
+                <ul>
+                    <li><a href="#bodywash">Body Wash</a></li>
+                 </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="bodywash">
+            <div class="container">
+                <h2>Body Wash Collection</h2>
+                <div class="product-grid">
+                    <div class="product">
+                        <img src="https://media.thebodyshop.in/media/catalog/product/b/r/british_rose_shower_gel_250ml_1_inabcps069_1.jpg?format=auto&height=420" alt="Body Wash 1">
+                        <h3>British rose body wash</h3>
+                        <p>Rs.495</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://m.media-amazon.com/images/I/81TFzDu8BnL.jpg" alt="Body Wash 2">
+                        <h3>Olive body Wash</h3>
+                        <p>Rs.495</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://m.media-amazon.com/images/I/61j-43jMxqL.jpg" alt="body Wash 3">
+                        <h3>Strawberry body wash</h3>
+                        <p>Rs.495</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://m.media-amazon.com/images/I/71UWZ1Cf57L.jpg" alt="body Wash 4">
+                        <h3>Argan oil body wash</h3>
+                        <p>Rs.495</p>
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+      <button> <a href="mainweb6index.html">Click for next page</a></button>
+       
+    </main>
+
+    <script>
+        
+        var cart = [];
+    
+        
+        var addToCartButtons = document.querySelectorAll('button');
+    
+       
+        for (var i = 0; i < addToCartButtons.length; i++) {
+            
+            if (addToCartButtons[i].textContent.includes("next page")) continue;
+    
+            addToCartButtons[i].onclick = function() {
+               
+                var product = this.parentElement;
+                var name = product.querySelector('h3').textContent;
+                var price = product.querySelector('p').textContent;
+    
+               
+                cart.push({ name: name, price: price });
+                alert(name + " has been added to your cart.");
+            };
+        }
+    
+       
+        function checkout() {
+            if (cart.length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+    
+            
+            var cartSummary = "Your Cart:\n";
+            var total = 0;
+            for (var j = 0; j < cart.length; j++) {
+                cartSummary += cart[j].name + " - " + cart[j].price + "\n";
+                total += parseInt(cart[j].price.replace("Rs.", ""));
+            }
+            cartSummary += "\nTotal: Rs." + total;
+    
+            
+            var proceed = confirm(cartSummary + "\n\nProceed to payment?");
+           
+        }
+    
+        var checkoutButton = document.createElement('button');
+        checkoutButton.textContent = "Checkout";
+        checkoutButton.style.display = "block";
+        checkoutButton.style.margin = "20px auto";
+        document.body.appendChild(checkoutButton);
+    
+       
+        checkoutButton.onclick = checkout;
+    </script>
+    <button> <a href="paymentform.html">Payment</a></button>
+<p> Click here on Payment button after checkout</p>
+
+
+</body>
+</html>

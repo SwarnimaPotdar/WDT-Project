@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Page</title>
+    <link rel="stylesheet" href="mw2_style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Face Shop</h1>
+            <nav>
+                <ul>
+                    <li><a href="#moisturizer">Face Wash</a></li>
+                    <li><a href="#sunscreen">Toners</a></li>
+                 </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="moisturizer">
+            <div class="container">
+                <h2>Moisturizer Collection</h2>
+                <div class="product-grid">
+                    <div class="product">
+                        <img src="https://thefaceshop.in/cdn/shop/files/Image_3.jpg?v=1709268307&width=1500" alt="moisturizer 1">
+                        <h3>Rice ceramide moisturizer</h3>
+                        <p>Rs.885</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://thefaceshop.in/cdn/shop/products/1_41849e85-2448-457d-aaf5-a2e7ac9b87d5.jpg?v=1672823396&width=1100" alt="moisturizer 2">
+                        <h3>Colagen boost moisturizer</h3>
+                        <p>Rs.1099</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://images-static.nykaa.com/media/catalog/product/tr:h-800,w-800,cm-pad_resize/0/3/0329e388806182579196_1.jpg" alt="moisturizer 3">
+                        <h3>Chia seed moisturizer</h3>
+                        <p>Rs.999</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://thefaceshop.in/cdn/shop/files/8801051496574.jpg?v=1693286889" alt="moisturizer">
+                        <h3>vegan moisture blending cream</h3>
+                        <p>Rs.2099</p>
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sunscreen">
+            <div class="container">
+                <h2> Sunscreen Collection</h2>
+                <div class="product-grid">
+                    <div class="product">
+                        <img src="https://thefaceshop.in/cdn/shop/files/2_53.jpg?v=1710738357&width=1500" alt="sunscreen 1">
+                        <h3>Creme solaire</h3>
+                        <p>Rs.840</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://thefaceshop.in/cdn/shop/files/2_55.jpg?v=1705901722&width=1100" alt="sunscreen 2">
+                        <h3>Chia seed sunscreen</h3>
+                        <p>Rs.1260</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://m.media-amazon.com/images/I/41A9YDexNKL.jpg" alt="sunscreen 3">
+                        <h3>Hydroboost sunscreen</h3>
+                        <p>Rs.999</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://cdn.tirabeauty.com/v2/billowing-snowflake-434234/tira-p/wrkr/products/pictures/item/free/original/1124968/IKiakud4r0-1124968_1.jpg" alt="sunscreen 4">
+                        <h3>Vegan illuminating sunscreen</h3>
+                        <p>Rs.1650</p>
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    
+    <script>
+        
+        var cart = [];
+    
+        
+        var addToCartButtons = document.querySelectorAll('button');
+    
+       
+        for (var i = 0; i < addToCartButtons.length; i++) {
+            
+            if (addToCartButtons[i].textContent.includes("next page")) continue;
+    
+            addToCartButtons[i].onclick = function() {
+               
+                var product = this.parentElement;
+                var name = product.querySelector('h3').textContent;
+                var price = product.querySelector('p').textContent;
+    
+               
+                cart.push({ name: name, price: price });
+                alert(name + " has been added to your cart.");
+            };
+        }
+    
+       
+        function checkout() {
+            if (cart.length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+    
+            
+            var cartSummary = "Your Cart:\n";
+            var total = 0;
+            for (var j = 0; j < cart.length; j++) {
+                cartSummary += cart[j].name + " - " + cart[j].price + "\n";
+                total += parseInt(cart[j].price.replace("Rs.", ""));
+            }
+            cartSummary += "\nTotal: Rs." + total;
+    
+            
+            var proceed = confirm(cartSummary + "\n\nProceed to payment?");
+           
+        }
+    
+        var checkoutButton = document.createElement('button');
+        checkoutButton.textContent = "Checkout";
+        checkoutButton.style.display = "block";
+        checkoutButton.style.margin = "20px auto";
+        document.body.appendChild(checkoutButton);
+    
+       
+        checkoutButton.onclick = checkout;
+    </script>
+    <button> <a href="paymentform.html">Payment</a></button>
+<p> Click here on Payment button after checkout</p>
+
+
+<button> <a href="mainweb5index.html"> Click for next page</a></button>
+
+</body>
+</html>

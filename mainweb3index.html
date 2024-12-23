@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Page</title>
+    <link rel="stylesheet" href="mw2_style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Face Shop</h1>
+            <nav>
+                <ul>
+                    <li><a href="#Serum">Face Wash</a></li>
+                    <li><a href="#sheetmask">Toners</a></li>
+                 </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="Serum">
+            <div class="container">
+                <h2>Serum Collection</h2>
+                <div class="product-grid">
+                    <div class="product">
+                        <img src="https://thefaceshop.in/cdn/shop/files/8801051267969.jpg?v=1712922710" alt="Serum 1">
+                        <h3>Rice water bright Serum</h3>
+                        <p>Rs.1530</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://cdn.tirabeauty.com/v2/billowing-snowflake-434234/tira-p/wrkr/products/pictures/item/free/resize-w:540/1124955/8pqx4rZV3q-1124955_1.jpg" alt="Serum 2">
+                        <h3>Tea tree Serum</h3>
+                        <p>Rs.2249</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://thefaceshop.in/cdn/shop/files/10_7590b020-62a7-4bff-837d-4c48c5196fa1.jpg?v=1709270614&width=1500" alt="Serum 3">
+                        <h3>White seed Serum</h3>
+                        <p>Rs.1868</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://thefaceshop.in/cdn/shop/files/8801051498233.jpg?v=1712923784" alt="Serum 4">
+                        <h3>vitamin C Serum</h3>
+                        <p>Rs.1741</p>
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sheetmask">
+            <div class="container">
+                <h2>Sheet masks Collection</h2>
+                <div class="product-grid">
+                    <div class="product">
+                        <img src="https://images-static.nykaa.com/media/catalog/product/8/c/8caa6208806182557132__1_.jpg?tr=w-500" alt="sheetmask 1">
+                        <h3>Rice riz mask</h3>
+                        <p>Rs.100</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://thefaceshop.in/cdn/shop/products/1_2f255b88-5bad-4262-9618-c6d11fbc3ec9.jpg?v=1665682640" alt="sheetmask 2">
+                        <h3>Blueberry bleuet mask</h3>
+                        <p>Rs.100</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://thefaceshop.in/cdn/shop/products/1_efb137c5-700f-4dc6-a184-9ee5d19046cf.jpg?v=1610956615" alt="sheetmask 3">
+                        <h3>Red ginseng mask</h3>
+                        <p>Rs.100</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://thefaceshop.in/cdn/shop/products/1_16dd9d3a-5a9a-432c-8ee5-3b49162332b4.jpg?v=1610956231" alt="sheetmask 4">
+                        <h3>Avocado mask</h3>
+                        <p>Rs.100</p>
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        
+        var cart = [];
+    
+        
+        var addToCartButtons = document.querySelectorAll('button');
+    
+       
+        for (var i = 0; i < addToCartButtons.length; i++) {
+            
+            if (addToCartButtons[i].textContent.includes("next page")) continue;
+    
+            addToCartButtons[i].onclick = function() {
+               
+                var product = this.parentElement;
+                var name = product.querySelector('h3').textContent;
+                var price = product.querySelector('p').textContent;
+    
+               
+                cart.push({ name: name, price: price });
+                alert(name + " has been added to your cart.");
+            };
+        }
+    
+       
+        function checkout() {
+            if (cart.length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+    
+            
+            var cartSummary = "Your Cart:\n";
+            var total = 0;
+            for (var j = 0; j < cart.length; j++) {
+                cartSummary += cart[j].name + " - " + cart[j].price + "\n";
+                total += parseInt(cart[j].price.replace("Rs.", ""));
+            }
+            cartSummary += "\nTotal: Rs." + total;
+    
+            
+            var proceed = confirm(cartSummary + "\n\nProceed to payment?");
+           
+        }
+    
+        var checkoutButton = document.createElement('button');
+        checkoutButton.textContent = "Checkout";
+        checkoutButton.style.display = "block";
+        checkoutButton.style.margin = "20px auto";
+        document.body.appendChild(checkoutButton);
+    
+       
+        checkoutButton.onclick = checkout;
+    </script>
+    <button> <a href="paymentform.html">Payment</a></button>
+<p> Click here on Payment button after checkout</p>
+
+
+       <button> <a href="mainweb4index.html"> Click for next page</a></button>
+</body>
+</html>

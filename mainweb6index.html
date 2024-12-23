@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Page</title>
+    <link rel="stylesheet" href="mw2_style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Body Shop</h1>
+            <nav>
+                <ul>
+                    <li><a href="#scrub">Body Butter</a></li>
+                 </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="scrub">
+            <div class="container">
+                <h2>Body Scrub Collection</h2>
+                <div class="product-grid">
+                    <div class="product">
+                        <img src="https://media.thebodyshop.com/i/thebodyshop/1017273_BODY_SCRUB_SHEA_50ML_BRONZE_INACLPS174?$product-zoom$&fmt=auto" alt="scrub 1">
+                        <h3>Shea body scrub</h3>
+                        <p>Rs.1200</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://media.thebodyshop.com/i/thebodyshop/1037678_BODY_SCRUB_Almond_Milk_240ml_BRNZ_NW_INAGBPS017?$product-zoom$&fmt=auto" alt="scrub 2">
+                        <h3>Almond milk body scrub</h3>
+                        <p>Rs.3400</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://media.thebodyshop.com/i/thebodyshop/1037673_BODY_SCRUB_MORINGA_240ML_A0X_BRONZE_1_NW_INAGBPS012?$product-normal$&fmt=auto" alt="scrub 3">
+                        <h3>Moringa body scrub</h3>
+                        <p>Rs.3400</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://media.thebodyshop.com/i/thebodyshop/1019428_BODY_SCRUB_Mango_240ml_BRNZ_NW_INAGBPS011?$product-normal$&fmt=auto" alt="scrub 4">
+                        <h3>Mango body scrub</h3>
+                        <p>Rs.1200</p>
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+      <button> <a href="mainweb7index.html"> Click for next page</a></button>
+       
+    </main>
+
+    <script>
+        
+        var cart = [];
+    
+        
+        var addToCartButtons = document.querySelectorAll('button');
+    
+       
+        for (var i = 0; i < addToCartButtons.length; i++) {
+            
+            if (addToCartButtons[i].textContent.includes("next page")) continue;
+    
+            addToCartButtons[i].onclick = function() {
+               
+                var product = this.parentElement;
+                var name = product.querySelector('h3').textContent;
+                var price = product.querySelector('p').textContent;
+    
+               
+                cart.push({ name: name, price: price });
+                alert(name + " has been added to your cart.");
+            };
+        }
+    
+       
+        function checkout() {
+            if (cart.length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+    
+            
+            var cartSummary = "Your Cart:\n";
+            var total = 0;
+            for (var j = 0; j < cart.length; j++) {
+                cartSummary += cart[j].name + " - " + cart[j].price + "\n";
+                total += parseInt(cart[j].price.replace("Rs.", ""));
+            }
+            cartSummary += "\nTotal: Rs." + total;
+    
+            
+            var proceed = confirm(cartSummary + "\n\nProceed to payment?");
+           
+        }
+    
+        var checkoutButton = document.createElement('button');
+        checkoutButton.textContent = "Checkout";
+        checkoutButton.style.display = "block";
+        checkoutButton.style.margin = "20px auto";
+        document.body.appendChild(checkoutButton);
+    
+       
+        checkoutButton.onclick = checkout;
+    </script>
+    <button> <a href="paymentform.html">Payment</a></button>
+<p> Click here on Payment button after checkout</p>
+
+</body>
+</html>

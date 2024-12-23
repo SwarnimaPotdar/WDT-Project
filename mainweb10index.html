@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Page</title>
+    <link rel="stylesheet" href="mw2_style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Hair Shop</h1>
+            <nav>
+                <ul>
+                    <li><a href="#mask"></a></li>
+                    <li><a href="#hserum">Conditioner</a></li>
+                 </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="mask">
+            <div class="container">
+                <h2>Hair mask Collection</h2>
+                <div class="product-grid">
+                    <div class="product">
+                        <img src="https://images-static.nykaa.com/media/catalog/product/9/a/9a28f79NYLOPROF00001_1.jpg" alt="mask 1">
+                        <h3>Absolute repair hair mask</h3>
+                        <p>Rs.975</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/9925141/2024/8/21/4ae0555f-8bbe-4e6c-af5a-2f2e62f717e91724218428011-LOreal-Professionnel-Liss-Unlimited-Hair-Mask-with-Pro-Kerat-1.jpg" alt="mask 2">
+                        <h3>Liss unlimited hair mask</h3>
+                        <p>Rs.920</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://images-static.nykaa.com/media/catalog/product/9/4/940d7bc8901526401611_1.jpg" alt="mask 3">
+                        <h3>Vitamino color hair mask</h3>
+                        <p>Rs.975</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://prokare.in/cdn/shop/products/anti-oiliness.webp?v=1673684620" alt="mask 4">
+                        <h3>Scalp advance hair mask</h3>
+                        <p>Rs.2800</p>
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="hserum">
+            <div class="container">
+                <h2> Hair Serum Collection</h2>
+                <div class="product-grid">
+                    <div class="product">
+                        <img src="https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/9925169/2024/8/21/66e86e6d-1284-4897-a59f-26787985e6691724218451417-LOreal-Professionnel-Serie-Expert-Liss-Unlimited-Primrose-Oi-1.jpg" alt="hserum 1">
+                        <h3>Liss unlimited hair serum</h3>
+                        <p>Rs.820</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://images-static.nykaa.com/media/catalog/product/9/4/940d7bcLORAA00000013_11.jpg?tr=w-500" alt="hserum 2">
+                        <h3>Absolute repair hair serum </h3>
+                        <p>Rs.1380</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://www.lorealprofessionnel.in/-/media/project/loreal/brand-sites/lp/apac/in/hair-care/serioxyl-advanced/pdp/denser-hair-density-activator-serum/03-serioxyl-advanced-serum-1920x1920.png?rev=54faffd917e049d396b4cf09b1431a03&cx=0.52&cy=0.5&cw=360&ch=520&hash=B54FDCEB6AD3DD2F28FD5D190DBFA03E" alt="hserum 3">
+                        <h3>Serioxyl hair serum</h3>
+                        <p>Rs.2199</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://img.clevup.in/366577/SKU-14729_0-1719482733669.jpg?width=600&format=webp" alt="hserum 4">
+                        <h3>Xtenso care hair serum</h3>
+                        <p>Rs.799</p>
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p class="thank-you">Thank you for shopping with us!</p>
+            <p class="customer-care"> <strong class="hover-effect">Customer Care Number: 0000-123-456</strong></p>
+        </div>
+    </footer>
+
+    <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+footer {
+    background-color: #7bdaf2;
+    color: #090909;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 2rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+footer .thank-you {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #090909;
+    margin-bottom: 0.5rem;
+}
+
+footer .customer-care {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #f9f9f9;
+}
+
+footer .hover-effect:hover{
+    color:crimson;
+    transition: color 0.3s ease;
+}
+
+    </style>
+
+<script>
+        
+    var cart = [];
+
+    
+    var addToCartButtons = document.querySelectorAll('button');
+
+   
+    for (var i = 0; i < addToCartButtons.length; i++) {
+        
+        if (addToCartButtons[i].textContent.includes("next page")) continue;
+
+        addToCartButtons[i].onclick = function() {
+           
+            var product = this.parentElement;
+            var name = product.querySelector('h3').textContent;
+            var price = product.querySelector('p').textContent;
+
+           
+            cart.push({ name: name, price: price });
+            alert(name + " has been added to your cart.");
+        };
+    }
+
+   
+    function checkout() {
+        if (cart.length === 0) {
+            alert("Your cart is empty!");
+            return;
+        }
+
+        
+        var cartSummary = "Your Cart:\n";
+        var total = 0;
+        for (var j = 0; j < cart.length; j++) {
+            cartSummary += cart[j].name + " - " + cart[j].price + "\n";
+            total += parseInt(cart[j].price.replace("Rs.", ""));
+        }
+        cartSummary += "\nTotal: Rs." + total;
+
+        
+        var proceed = confirm(cartSummary + "\n\nProceed to payment?");
+       
+    }
+
+    var checkoutButton = document.createElement('button');
+    checkoutButton.textContent = "Checkout";
+    checkoutButton.style.display = "block";
+    checkoutButton.style.margin = "20px auto";
+    document.body.appendChild(checkoutButton);
+
+   
+    checkoutButton.onclick = checkout;
+</script>
+<button> <a href="paymentform.html">Payment</a></button>
+<p> Click here on Payment button after checkout</p>
+
+
+</body>
+</html>

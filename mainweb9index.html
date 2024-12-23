@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Page</title>
+    <link rel="stylesheet" href="mw2_style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Hair Shop</h1>
+            <nav>
+                <ul>
+                    <li><a href="#shampoo">Shampoo</a></li>
+                    <li><a href="#conditioner">Conditioner</a></li>
+                 </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="shampoo">
+            <div class="container">
+                <h2>Shampoo Collection</h2>
+                <div class="product-grid">
+                    <div class="product">
+                        <img src="https://beautifulstore.in/wp-content/uploads/2024/02/Q1-6.jpg" alt="shampoo 1">
+                        <h3>Vitamino color shampoo</h3>
+                        <p>Rs.2375</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/9925163/2024/8/21/35693772-c8d0-4b70-9715-8309195971bf1724218439750-LOreal-Professionnel-Liss-Unlimited-Shampoo-with-Pro-Keratin-1.jpg" alt="shampoo 2">
+                        <h3>Liss unlimited shampoo</h3>
+                        <p>Rs.790</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://images-static.nykaa.com/media/catalog/product/8/c/8cad70d8901526401383_1.jpg" alt="shampoo 3">
+                        <h3>Scalp advance shampoo</h3>
+                        <p>Rs.950</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://thehairbar.in/cdn/shop/products/shopping.webp?v=1709549461" alt="shampoo 4">
+                        <h3>Instant clear shampoo</h3>
+                        <p>Rs.695</p>
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="conditioner">
+            <div class="container">
+                <h2> Conditioner Collection</h2>
+                <div class="product-grid">
+                    <div class="product">
+                        <img src="https://cdn.shopify.com/s/files/1/1588/9573/products/LORE-3474636975709-1.png?v=1628078553" alt="conditioner 1">
+                        <h3>Vitamino color conditioner</h3>
+                        <p>Rs.1999</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://www.lorealprofessionnel-me.com/me-en/-/media/master/me-en/products/packshotphoto/hair-care/liss-unlimited/conditioner_lissunlimited/conditioner_lissunlimited_v3.jpg?as=1&w=500&hash=B445CA51624B05A5848647D45EE8F3F715724FD5" alt="conditioner 2">
+                        <h3>Liss unlimited conditioner </h3>
+                        <p>Rs.1999</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://www.lorealprofessionnel.com/-/media/project/loreal/brand-sites/lp/emea/inter/hair-care/absolut-repair/pdp/instant-resurfacing-conditioner/1-slider.jpg?rev=d2810c1dd3b7456c833e0e99b8ee59d0&cx=0.49&cy=0.49&cw=1920&ch=1920&hash=17AA14F7CC1C93510C67DC5C8BB9AC57" alt="shampoo 3">
+                        <h3>Absolute repair conditioner</h3>
+                        <p>Rs.1999</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://lyskin.com/wp-content/uploads/2021/02/Lyskin-loreal-professionnel-LOP00058-1.jpg" alt="conditioner 4">
+                        <h3>Prolonger conditioner</h3>
+                        <p>Rs.1999</p>
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        
+        var cart = [];
+    
+        
+        var addToCartButtons = document.querySelectorAll('button');
+    
+       
+        for (var i = 0; i < addToCartButtons.length; i++) {
+            
+            if (addToCartButtons[i].textContent.includes("next page")) continue;
+    
+            addToCartButtons[i].onclick = function() {
+               
+                var product = this.parentElement;
+                var name = product.querySelector('h3').textContent;
+                var price = product.querySelector('p').textContent;
+    
+               
+                cart.push({ name: name, price: price });
+                alert(name + " has been added to your cart.");
+            };
+        }
+    
+       
+        function checkout() {
+            if (cart.length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+    
+            
+            var cartSummary = "Your Cart:\n";
+            var total = 0;
+            for (var j = 0; j < cart.length; j++) {
+                cartSummary += cart[j].name + " - " + cart[j].price + "\n";
+                total += parseInt(cart[j].price.replace("Rs.", ""));
+            }
+            cartSummary += "\nTotal: Rs." + total;
+    
+            
+            var proceed = confirm(cartSummary + "\n\nProceed to payment?");
+           
+        }
+    
+        var checkoutButton = document.createElement('button');
+        checkoutButton.textContent = "Checkout";
+        checkoutButton.style.display = "block";
+        checkoutButton.style.margin = "20px auto";
+        document.body.appendChild(checkoutButton);
+    
+       
+        checkoutButton.onclick = checkout;
+    </script>
+    <button> <a href="paymentform.html">Payment</a></button>
+<p> Click here on Payment button after checkout</p>
+
+
+<button> <a href="mainweb10index.html"> Click for next page</a></button>
+
+</body>
+</html>

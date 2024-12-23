@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Page</title>
+    <link rel="stylesheet" href="mw2_style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Face Shop</h1>
+            <nav>
+                <ul>
+                    <li><a href="#facewash">Face Wash</a></li>
+                    <li><a href="#toner">Toners</a></li>
+                 </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="facewash">
+            <div class="container">
+                <h2>Face Wash Collection</h2>
+                <div class="product-grid">
+                    <div class="product">
+                        <img src="https://thefaceshop.in/cdn/shop/files/6_2_3f39ccf1-64f8-4486-a86e-896ca9040d3f.jpg?v=1712034585" alt="Face Wash 1">
+                        <h3>Rice water Face Wash</h3>
+                        <p>Rs.1299</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://m.media-amazon.com/images/I/61Pl5BqvXjL._AC_UF1000,1000_QL80_.jpg" alt="Face Wash 2">
+                        <h3>Tea tree Face Wash</h3>
+                        <p>Rs.1499</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://images-static.nykaa.com/media/catalog/product/c/0/c00cd0cTHEFA00000040.jpg" alt="Face Wash 3">
+                        <h3>Aloe vera Face Wash</h3>
+                        <p>Rs.1099</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://smytten-image.gumlet.io/shop_item/TFS0214AB201.jpg" alt="Face Wash 4">
+                        <h3>Special herb 365 Wash</h3>
+                        <p>Rs.1699</p>
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="toner">
+            <div class="container">
+                <h2>Toner Collection</h2>
+                <div class="product-grid">
+                    <div class="product">
+                        <img src="https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/9106051/2021/8/11/0f14ba16-a652-438a-9e91-47ab3a4145bd1628659231838TheFaceShopRiceCeramideMoisturizingToner150ml1.jpg" alt="Toner 1">
+                        <h3>Rice ceramide toner</h3>
+                        <p>Rs.899</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://thefaceshop.in/cdn/shop/products/CalendulaEssentialMoistureSerum_0.png?v=1638858491" alt="Toner 2">
+                        <h3>Chia seed Hydrating Toner</h3>
+                        <p>Rs.999</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://thefaceshop.in/cdn/shop/files/8801051465464_1.jpg?v=1693287635&width=1100" alt="Toner 3">
+                        <h3>Vegan blending Toner</h3>
+                        <p>Rs.1099</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="https://onemg.gumlet.io/l_watermark_346,w_480,h_480/a_ignore,w_480,h_480,c_fit,q_auto,f_auto/9ea17b74dd4d4900bd0078eb28ef8ea2.jpg?format=auto" alt="Toner 4">
+                        <h3>Mango seed Soothing Toner</h3>
+                        <p>Rs.799</p>
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        
+        var cart = [];
+    
+        
+        var addToCartButtons = document.querySelectorAll('button');
+    
+       
+        for (var i = 0; i < addToCartButtons.length; i++) {
+            
+            if (addToCartButtons[i].textContent.includes("next page")) continue;
+    
+            addToCartButtons[i].onclick = function() {
+               
+                var product = this.parentElement;
+                var name = product.querySelector('h3').textContent;
+                var price = product.querySelector('p').textContent;
+    
+               
+                cart.push({ name: name, price: price });
+                alert(name + " has been added to your cart.");
+            };
+        }
+    
+       
+        function checkout() {
+            if (cart.length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+    
+            
+            var cartSummary = "Your Cart:\n";
+            var total = 0;
+            for (var j = 0; j < cart.length; j++) {
+                cartSummary += cart[j].name + " - " + cart[j].price + "\n";
+                total += parseInt(cart[j].price.replace("Rs.", ""));
+            }
+            cartSummary += "\nTotal: Rs." + total;
+    
+            
+            var proceed = confirm(cartSummary + "\n\nProceed to payment?");
+           
+        }
+    
+        var checkoutButton = document.createElement('button');
+        checkoutButton.textContent = "Checkout";
+        checkoutButton.style.display = "block";
+        checkoutButton.style.margin = "20px auto";
+        document.body.appendChild(checkoutButton);
+    
+       
+        checkoutButton.onclick = checkout;
+    </script>
+    <button> <a href="paymentform.html">Payment</a></button>
+<p> Click here on Payment button after checkout</p>
+<button> <a href="mainweb3index.html"> Click for next page</a></button>
+</body>
+</html>
