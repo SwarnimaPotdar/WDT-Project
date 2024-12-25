@@ -67,47 +67,43 @@
 <body>
     <div class="login-container">
         <h1>Login</h1>
-        <form action="/login" method="POST">
+        <form id="loginpage" action="/login" method="POST">
             <label for="username">Username</label>
             <input type="text" id="username" name="username" placeholder="Enter your username" required>
 
             <label for="password">Password</label>
             <input type="password" id="password" name="password" placeholder="Enter your password" required>
 
-            <button><a href="index.html">Login</a></button>
+            <button type="submit">Login</button>
         </form>
-       <button> <a href="signuppage.html"> Sign Up</a></button>
+        <div class="link">
+            <a href="signuppage.html">Sign Up</a>
+        </div>
     </div>
-<script>
+
     <script>
-        document.getElementById("signup-form").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent the form from submitting
+        document.getElementById("loginpage").addEventListener("submit", function(event) {
+            event.preventDefault(); 
+            
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
 
-    const username = document.getElementById("username").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value;
+            const users = JSON.parse(localStorage.getItem("users")) || [];
+            
+            const user = users.find(user => user.username === username &&  user.password === password);
 
-    
-    if (!username || !email || !password) {
-        alert("Please fill in all fields.");
-        return;
-    }
+            if (user) {
+                alert("Login successful! Welcome back, " + username + ".");
+                window.location.href = "index.html"; 
+            } else {
+                alert("Invalid credentials! Please check your username and password.");
+            }
+        });
+    </script>
 
-    
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        alert("Please enter a valid email address.");
-        return;
-    }
-
-    const user = { username, email, password };
-
-    localStorage.setItem("user", JSON.stringify(user));
-
-    alert("Sign-up successful! Data stored locally.");
-
-});
-
-</script>
 </body>
 </html>
+
+      
+    
+   
